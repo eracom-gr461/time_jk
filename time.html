@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>The JS Clocks</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+        	body {
+        	  margin: 0;
+        	}
+
+        	html {
+        		font-family: monospace;
+        		font-size: 500%;
+        	}
+
+        	time {
+        		position: absolute;
+        	}
+
+      </style>
+    </head>
+    <body>
+
+		<time id="heure">00</time>
+		<time id="minute">00</time>
+		<time id="seconde">00</time>
+
+    </body>
+	<script>
+
+	// Initialiser l'affichage au chargement:
+	metronome();
+	metronomeMinute();
+	metronomeHeure();
+	// Répéter la fonction metronome une fois par seconde
+	var monIntervalle = setInterval(function() {
+	  metronome();
+  }, 1000); // mille millisecondes = 1 seconde
+	// Notre fonction random:
+	function getRandom(min, max) {
+    	return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	function metronomeHeure() {
+		var date = new Date;
+  	var heure = date.getHours();
+		document.getElementById("heure").innerHTML = heure;
+		document.getElementById("heure").style.top = getRandom(10, 90)+'%';
+  	document.getElementById("heure").style.left = getRandom(10, 90)+'%';
+	}
+	function metronomeMinute() {
+		var date = new Date;
+  	var minute = date.getMinutes();
+	  document.getElementById("minute").innerHTML = minute;
+		document.getElementById("minute").style.top = getRandom(10, 90)+'%';
+  	document.getElementById("minute").style.left = getRandom(10, 90)+'%';
+
+  	// test conditionnel
+  	if ( minute == 0 ) {
+  		metronomeHeure();
+  	}
+	}
+
+	function metronome() {
+	  var date = new Date;
+		var minute = date.getMinutes();
+		var seconde = date.getSeconds();
+	  document.getElementById("seconde").innerHTML = seconde;
+		document.getElementById("seconde").style.top = getRandom(10, 90)+'%';
+  	document.getElementById("seconde").style.left = getRandom(10, 90)+'%';
+	  // test conditionnel
+	  if ( seconde == 0 ) {
+		  metronomeMinute();
+	  }
+
+	}
+	</script>
+</html>
