@@ -2,8 +2,7 @@
 	<html lang="fr">
 	    <head>
 	        <meta charset="utf-8">
-	        <title>The JS Clocks</title>
-					<link rel="stylesheet" href="css/normalize.css">
+	        <title>Jeremie Kursner</title>
 	        <meta name="viewport" content="width=device-width, initial-scale=1">
 	        <style>
 
@@ -149,11 +148,37 @@
 			var heure = date.getHours();
 
 
-			// coloriser élément actif en rouge
+// on colorise l'element actuel
 
-		document.getElementById("sec"+seconde).style.backgroundColor = "red";
-		document.getElementById("min"+minute).style.backgroundColor = "green";
-		document.getElementById("heure"+heure).style.backgroundColor = "blue";
+			document.getElementById("sec"+seconde).style.backgroundColor = "red";
+			document.getElementById("min"+minute).style.backgroundColor = "green";
+			document.getElementById("heure"+heure).style.backgroundColor = "blue";
+
+			// colriser les sec deja ecoulés
+
+			var i;
+		for (i = 0; i < seconde; i++) {
+
+				document.getElementById("sec"+i).style.backgroundColor = "red";
+
+		}
+		var i;
+	for (i = 0; i < minute; i++) {
+
+		document.getElementById("min"+i).style.backgroundColor = "green";
+
+	}
+
+	var i;
+for (i = 0; i < heure; i++) {
+
+	document.getElementById("heure"+i).style.backgroundColor = "blue";
+}
+
+
+
+
+
 
 		  // test conditionnel
 		  if ( seconde == 0 ) {
